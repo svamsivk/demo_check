@@ -2,25 +2,25 @@ name: Assets CI
 
 on:
   push:
-    branches:
-    - main
-    paths:
-    - 'src/assets/**'
-  pull_request:
-    branches:
-    - main
-    paths:
-    - 'src/assets/**'
-    - 'images/**'
-  workflow_dispatch:
+    branches: [ main ]
+    
+  #   paths:
+  #   - 'src/assets/**'
+  # pull_request:
+  #   branches:
+  #   - main
+  #   paths:
+  #   - 'src/assets/**'
+  #   - 'images/**'
+  # workflow_dispatch:
 
 jobs:
-  build:
-    name: CI
+  build-and-push:
+    name: Build and Push to ECR
     runs-on: ubuntu-latest
     steps:
-    - name: Check out code
-      uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v2
 
     # - name: Set up QEMU
     #   id: qemu
@@ -49,6 +49,7 @@ jobs:
     #     scripts/build-image.sh -s assets -t ci --actions-cache
 
     - name: Build and push the tagged docker image to Amazon ECR
+      id: build-image
       env:
         ECR_REGISTRY: ${{ steps.login-pf-aws-ecr.outputs.registry }}
         ECR_REPOSITORY: ${{secrets.AWS_ECR_REPO_assets}}
