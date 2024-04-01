@@ -1,5 +1,4 @@
 name: Assets CI
-
 on:
   push:
     branches: [ main ] 
