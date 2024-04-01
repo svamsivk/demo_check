@@ -2,17 +2,16 @@ name: Assets CI
 
 on:
   push:
-    branches: [ main ]
-    
+    branches: [ main ] 
     paths:
     - 'src/assets/**'
-  pull_request:
-    branches:
-    - main
-    paths:
-    - 'src/assets/**'
-    - 'images/**'
-  workflow_dispatch:
+  # pull_request:
+  #   branches:
+  #   - main
+  #   paths:
+  #   - 'src/assets/**'
+  #   - 'images/**'
+  # workflow_dispatch:
 
 jobs:
   build-and-push:
