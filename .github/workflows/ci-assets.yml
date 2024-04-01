@@ -2,8 +2,8 @@ name: Assets CI
 on:
   push:
     branches: [ main ] 
-    paths:
-    - 'src/assets/**'
+    # paths:
+    # - 'src/assets/**'
   # pull_request:
   #   branches:
   #   - main
