@@ -55,6 +55,5 @@ jobs:
       run: |
        cd src/assets
        docker build -t demo_assets .
-       docker tag demo_assets:latest public.ecr.aws/p6l7g7u8/demo_assets:latest
-       docker push public.ecr.aws/p6l7g7u8/demo_assets:latest
-
+       docker tag demo_assets:latest 841191853639.dkr.ecr.us-east-1.amazonaws.com/demo_assets:latest
+       docker push 841191853639.dkr.ecr.us-east-1.amazonaws.com/demo_assets:latest
